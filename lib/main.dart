@@ -17,6 +17,7 @@ class _QuizAppState extends State<QuizApp> {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
+      
       debugShowCheckedModeBanner: false,
       home: Container(
         decoration:const  BoxDecoration(
