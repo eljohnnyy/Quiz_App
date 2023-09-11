@@ -10,9 +10,12 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
-  var currentquestion=question[2];
+ var index=0;
+ List<String>answer=[];
   @override
   Widget build(BuildContext context) {
+    
+     var currentquestion=question[index];
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 13, 1, 46),
       body: SizedBox(
@@ -37,7 +40,15 @@ class _QuizState extends State<Quiz> {
              ... currentquestion.getshuffled().map((e) {
                 return CustomButton(
                   answer: e,
-                  onPressed: () {},
+                  onPressed: () {
+
+                    setState(() {
+                      answer.add(e);
+                      index++;
+                    
+                    });
+                    
+                  },
                 );
                
               },),

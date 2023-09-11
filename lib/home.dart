@@ -17,11 +17,7 @@ class Home extends StatelessWidget {
           const SizedBox(
             height: 80,
           ),
-          const Text(
-            'Learn Flutter',
-            style: TextStyle(
-                fontSize: 40, color: Colors.black, fontWeight: FontWeight.bold),
-          ),
+        
            const  SizedBox(height: 50,),
            ElevatedButton.icon(
             style: ElevatedButton.styleFrom(

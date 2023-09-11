@@ -22,7 +22,9 @@ final void Function()? onPressed;
         child:  Text(
         
          answer ,
+         textAlign: TextAlign.center,
           style:const TextStyle(
+            
               fontSize: 25,
               color: Colors.white,
               fontWeight: FontWeight.bold),
