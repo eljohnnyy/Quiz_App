@@ -1,6 +1,10 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:quizapp/data/question.dart';
+import 'package:quizapp/home.dart';
 import 'package:quizapp/widget/custom_button.dart';
+import 'package:quizapp/widget/result_screen.dart';
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -11,7 +15,16 @@ class Quiz extends StatefulWidget {
 
 class _QuizState extends State<Quiz> {
  var index=0;
- List<String>answer=[];
+ List<String>answerr=[];
+
+ void choiceanswer(String answer){
+         answerr.add(answer);
+        
+         
+                        
+                      
+                      print(answerr);
+ }
   @override
   Widget build(BuildContext context) {
     
@@ -37,26 +50,58 @@ class _QuizState extends State<Quiz> {
               const SizedBox(
                 height: 30,
               ),
-             ... currentquestion.getshuffled().map((e) {
+             ... currentquestion.answers.map((e) {
                 return CustomButton(
+               
                   answer: e,
+                  
                   onPressed: () {
 
                     setState(() {
-                      answer.add(e);
-                      index++;
+                     choiceanswer(e);
+                  
                     
                     });
                     
                   },
                 );
                
-              },),
+              },).toList(),
              
             
               const SizedBox(
-                height: 30,
+                height: 150,
               ),
+                 ElevatedButton.icon(
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16))
+            ),
+            onPressed: (){
+setState(() {
+   if(index<question.length-1){
+                      index++;}
+                      else{
+                        
+  Navigator.push(context, MaterialPageRoute(builder: (context){
+    return   Result( answers:answerr,);
+    
+  }));
+  
+}
+}
+
+
+);
+             
+            },
+            icon:const Icon(Icons.arrow_back,size: 28,),
+             label: Text(
+            
+          index<question.length-1?  'Next Question':'Result',
+            style:const TextStyle(
+                fontSize: 30, color: Color.fromARGB(255, 247, 242, 242), fontWeight: FontWeight.bold),
+          ), )
+
             ],
           ),
         ),
