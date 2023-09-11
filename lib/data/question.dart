@@ -1,6 +1,6 @@
 import '../models/quizquestion.dart';
 
-List<Question> question = const [
+const List<Question> question =  [
   Question(' What does HTML stand for?', [
     'A. Hyper Text Markup Language',
     'B. Hyperlink and Text Markup Language',
